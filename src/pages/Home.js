@@ -13,7 +13,6 @@ export default function Home() {
   const [tagSearch, setTagSearch] = useState('');
 
   function recuperarDados(tag) {
-    console.log("entrou", tag)
     axios.get(`http://localhost:3000/tools`, {
       params: {
         tag: tag
@@ -28,8 +27,6 @@ export default function Home() {
   const deleteTool = (item) => {
     axios.delete(`http://localhost:3000/tools/${item.id}`).then(response => {
       recuperarDados();
-    }).catch(err => {
-      console.log("erro ao deletar:", err.message)
     })
   }
 
@@ -69,22 +66,22 @@ export default function Home() {
                 <Card style={styleCard} key={String(item.id)}>
 
                   <div className="card-container-text">
-                    <p className="title-card">{item.title}</p>
+                    <p className="title-card" style={{ fontSize: "18px", fontWeight: "bold", textDecoration: "underline", color: "blue", margin: "0px" }}>{item.title}</p>
                     <p className="description-card">{item.description}</p>
                     <div className="container-tags">
                       {item.tags.map(item => (
                         <label
-                          style={{ margin: "4px", color: "blue", cursor: "pointer" }}
+                          style={{ margin: "4px", cursor: "pointer", fontWeight: "bold" }}
                           key={item}
                           onClick={event => {
                             setTagSearch(item)
                             recuperarDados(item)
                           }}
-                        >{item}</label>
+                        >#{item}</label>
                       ))}
                     </div>
                   </div>
-                  <div className="remove-container" style={{ cursor: "pointer" }} onClick={() => deleteTool(item)}><p className="remove"><Close />remove</p></div>
+                  <div className="remove-container" style={{ cursor: "pointer" }} onClick={() => deleteTool(item)}><p className="remove" style={{ display: "flex", justifyContent: "center" }}><Close />remove</p></div>
                 </Card>
 
               )
