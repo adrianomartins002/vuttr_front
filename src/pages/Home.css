@@ -1,0 +1,15 @@
+.App-header {
+  align-items: baseline;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-controller {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-lista {
+  height: 70%;
+  overflow: auto;
+}

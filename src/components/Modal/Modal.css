@@ -1,0 +1,17 @@
+.container-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+  width: 60%;
+  height: 60%;
+}
+
+.container-button {
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+}
